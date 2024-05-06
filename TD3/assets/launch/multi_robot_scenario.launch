@@ -1,0 +1,29 @@
+<launch>
+<arg name="gui" value="false"/>
+
+   <!-- Gazebo  -->
+  <include file="$(find multi_robot_scenario)/launch/empty_world.launch" />
+
+  <!-- Robot with diff drive -->
+  <include file="$(find multi_robot_scenario)/launch/pioneer3dx.gazebo.launch">
+     <arg name="robot_name" value="r1" />
+     <arg name="robot_position" value="-x 0.0 -y 0.0 -z 0.01 -R 0 -P 0 -Y +0.0" />
+   </include>
+
+  <!-- RVIZ -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find multi_robot_scenario)/launch/pioneer3dx.rviz" />
+  <include file="$(find multi_robot_scenario)/launch/online_sync.launch"/>
+<!-- 
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+     <rosparam file="$(find  multi_robot_scenario)/config/global_costmap_params.yaml" command="load" ns="global_costmap" />
+     <rosparam file="$(find  multi_robot_scenario)/config/local_costmap_params.yaml" command="load" ns="local_costmap" />
+     <rosparam file="$(find  multi_robot_scenario)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+     <rosparam file="$(find  multi_robot_scenario)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find  multi_robot_scenario)/config/base_local_planner_params.yaml" command="load" />
+      <remap from="/odom" to="/r1/odom"/>
+      <remap from="/scan" to="/r1/front_laser/scan"/>
+
+   </node> -->
+
+
+</launch>
