@@ -1,12 +1,4 @@
 # Goal-Driven Fully Autonomous Exploration through DRL
-
-## Table of Contents
-- [Project Description](#project-description)
-- [Project Contents](#project-contents)
-- [Disclaimer](#disclaimer)
-- [Contact](#contact)
-
-## Project Description
 This repository consists of an implementation of a DRL-based robot exploration approach. The local navigation stack of the robot is trained using a TD3 neural network to get to the local goals optimally and safely. These points are generated following heuristics that take into consideration the characteristics of the surrounding area as well as the original mission: mapping an unknown environment.
 
 
